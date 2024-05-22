@@ -25,5 +25,4 @@ public class UserRegistration {
     private byte[] profilePicture;
 
 
-    }
-
+}

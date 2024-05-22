@@ -77,7 +77,8 @@ public class ReservationController {
                     savedPassenger,
                     byrouteId.get().getFromLocation(),
                     byrouteId.get().getToLocation(),
-                    byrouteId.get().getFromDate()
+                    byrouteId.get().getFromDate(),
+                    byrouteId.get().getToDate()
             );
             emailService.sendEmailWithAttachment(
                     passenger.getEmail(),
@@ -87,7 +88,7 @@ public class ReservationController {
                     "Your Reservation id" + savedPassenger.getId()
             );
         }
-        return new ResponseEntity<>("Done...", HttpStatus.CREATED);
+        return new ResponseEntity<>("Congrats!your tickect hasbeen booked!!!", HttpStatus.CREATED);
     }
 
 }

@@ -13,7 +13,7 @@ import java.io.ByteArrayOutputStream;
 
 @Service
 public class PdfTickectGeneratorService {
-    public byte[] generateTicket(Passenger passenger , String fromLocation , String toLocation ,String fromDate) {
+    public byte[] generateTicket(Passenger passenger , String fromLocation , String toLocation ,String fromDate,String toDate) {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         Document document = new Document();
         try {
@@ -25,9 +25,11 @@ public class PdfTickectGeneratorService {
             document.add(new Paragraph("Mobile: " + passenger.getMobile()));
             document.add(new Paragraph("Bus ID: " + passenger.getBusId()));
             document.add(new Paragraph("Route ID: " + passenger.getRouteId()));
-            document.add((new Paragraph("From Location"+fromLocation)));
-            document.add((new Paragraph("To Location"+toLocation)));
-            document.add((new Paragraph("From Date"+fromDate)));
+            document.add((new Paragraph("From Location:"+fromLocation)));
+            document.add((new Paragraph("To Location:"+toLocation)));
+            document.add((new Paragraph("From Date:"+fromDate)));
+            document.add((new Paragraph("To Date:"+toDate)));
+            document.add((new Paragraph("Thank you for choosing FisrtBus!!!")));
             document.close();
         } catch (DocumentException e) {
             e.printStackTrace();
